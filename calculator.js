@@ -41,7 +41,7 @@ operatorButtons.forEach(b => b.addEventListener("click", function (e) {
         tempStore = inputField.value;
         operator = e.target.textContent;
     } else {
-        tempStore = operate(parseInt(tempStore), parseInt(inputField.value), operator);
+        tempStore = operate(parseFloat(tempStore), parseFloat(inputField.value), operator);
         console.log(tempStore);
         inputField.value = tempStore; //update inputField
         operator = e.target.textContent; //store new operator
