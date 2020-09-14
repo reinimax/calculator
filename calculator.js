@@ -24,9 +24,14 @@ inputField.value = "";
 
 let tempStore = "";
 let operator = "";
+let operatorActive = false;
 
 const numberButtons = document.querySelectorAll(".numberBtn");
 numberButtons.forEach(b => b.addEventListener("click", function (e) {
+    if (operatorActive) {
+        inputField.value = ""; // reset Inputfield
+        operatorActive = false; //reset, so that more numbers can be entered
+    }
     inputField.value += e.target.textContent;
 }));
 
@@ -35,20 +40,20 @@ operatorButtons.forEach(b => b.addEventListener("click", function (e) {
     if (operator === "") {
         tempStore = inputField.value;
         operator = e.target.textContent;
-        inputField.value = ""; //clear inputField
     } else {
         tempStore = operate(parseInt(tempStore), parseInt(inputField.value), operator);
         console.log(tempStore);
         inputField.value = tempStore; //update inputField
-        operator = ""; //reset operator
+        operator = e.target.textContent; //store new operator
     }
+    operatorActive = true;
 }));
 
 function operate(a,b,operator) {
     switch (operator) {
         case "+": return add(a,b); //note for myself: when nesting callback functions, each one needs to return something!  
         case "-": return subtract(a,b);   
-        case "*": return multiply(a,b);  
+        case "x": return multiply(a,b);  
         case "/": return divide(a,b);
             
     }
