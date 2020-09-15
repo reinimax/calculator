@@ -110,5 +110,5 @@ function multiply(a,b) {
 }
 
 function divide(a,b) {
-    return a / b;
+    return (b === 0) ? "Don't try to divide by zero..." : a / b;
 }
