@@ -22,7 +22,7 @@ ELSE: (second or other time hitting operator)
 const inputField = document.querySelector("#inputField");
 inputField.value = "0";
 
-let tempStore = "";
+let tempStore = "0";
 let operator = "";
 let operatorActive = true;
 
@@ -50,16 +50,19 @@ operatorButtons.forEach(b => b.addEventListener("click", function (e) {
 
 const euqalButton = document.querySelector("#equals");
 euqalButton.addEventListener("click", function() {
-    tempStore = operate(parseFloat(tempStore), parseFloat(inputField.value), operator);
-    inputField.value = tempStore; //update inputField
-    operator = ""; //reset operator
+    if (operator !== "") {
+        tempStore = operate(parseFloat(tempStore), parseFloat(inputField.value), operator);
+        inputField.value = tempStore; //update inputField
+        operator = ""; //reset operator
+        
+    }
     operatorActive = true;
 });
 
 const acButton = document.querySelector("#AC");
 acButton.addEventListener("click", function() {
     inputField.value = "0";
-    tempStore = "";
+    tempStore = "0";
     operator = "";
     operatorActive = true;
 });
