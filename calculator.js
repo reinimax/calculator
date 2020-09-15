@@ -20,11 +20,11 @@ ELSE: (second or other time hitting operator)
 */
 
 const inputField = document.querySelector("#inputField");
-inputField.value = "";
+inputField.value = "0";
 
 let tempStore = "";
 let operator = "";
-let operatorActive = false;
+let operatorActive = true;
 
 const numberButtons = document.querySelectorAll(".numberBtn");
 numberButtons.forEach(b => b.addEventListener("click", function (e) {
@@ -42,12 +42,32 @@ operatorButtons.forEach(b => b.addEventListener("click", function (e) {
         operator = e.target.textContent;
     } else {
         tempStore = operate(parseFloat(tempStore), parseFloat(inputField.value), operator);
-        console.log(tempStore);
         inputField.value = tempStore; //update inputField
         operator = e.target.textContent; //store new operator
     }
     operatorActive = true;
 }));
+
+const euqalButton = document.querySelector("#equals");
+euqalButton.addEventListener("click", function() {
+    tempStore = operate(parseFloat(tempStore), parseFloat(inputField.value), operator);
+    inputField.value = tempStore; //update inputField
+    operator = ""; //reset operator
+    operatorActive = true;
+});
+
+const acButton = document.querySelector("#AC");
+acButton.addEventListener("click", function() {
+    inputField.value = "0";
+    tempStore = "";
+    operator = "";
+    operatorActive = true;
+});
+
+const cButton = document.querySelector("#C");
+cButton.addEventListener("click", function() {
+    inputField.value = inputField.value.substring(0,inputField.value.length-1);
+});
 
 function operate(a,b,operator) {
     switch (operator) {
