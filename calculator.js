@@ -69,6 +69,16 @@ cButton.addEventListener("click", function() {
     inputField.value = inputField.value.substring(0,inputField.value.length-1);
 });
 
+const invertButton = document.querySelector("#invert");
+invertButton.addEventListener("click", function() {
+    if (inputField.value[0] === "-") {
+        inputField.value = inputField.value.substring(1,inputField.value.length);
+    } else {
+        inputField.value = `-${inputField.value}`;
+    }
+
+});
+
 function operate(a,b,operator) {
     switch (operator) {
         case "+": return add(a,b); //note for myself: when nesting callback functions, each one needs to return something!  
