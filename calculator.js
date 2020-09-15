@@ -79,6 +79,11 @@ invertButton.addEventListener("click", function() {
 
 });
 
+const decimalButton = document.querySelector("#decimal");
+decimalButton.addEventListener("click", function() {
+    if (inputField.value.indexOf(".") === -1) inputField.value += "."; //only add "." if there is not already a dot in the inputField.
+});
+
 function operate(a,b,operator) {
     switch (operator) {
         case "+": return add(a,b); //note for myself: when nesting callback functions, each one needs to return something!  
