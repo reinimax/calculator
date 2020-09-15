@@ -1,0 +1,57 @@
+#container {
+    display: grid;
+    width: 300px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 75px);
+    grid-template-areas: 
+    "input input input input"
+    "AC C invert plus"
+    "none none none minus"
+    "none none none multiply"
+    "none none none divide"
+    "decimals zero equals equals";
+}
+
+#inputField {
+    grid-area: input;
+}
+
+#AC {
+    grid-area: AC;
+}
+
+#C {
+    grid-area: C;
+}
+
+#invert {
+    grid-area: invert;
+}
+
+#decimal {
+    grid-area: decimals;
+}
+
+#equals {
+    grid-area: equals;
+}
+
+#plus {
+    grid-area: plus;
+}
+
+#minus {
+    grid-area: minus;
+}
+
+#multiply {
+    grid-area: multiply;
+}
+
+#divide {
+    grid-area: divide;
+}
+
+#zero {
+    grid-area: zero;
+}
