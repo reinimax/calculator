@@ -7,18 +7,35 @@ body {
 button {
     border-radius: 25%;
     font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    border-color: rgb(186, 178, 197);
+}
+
+button:hover {
+    font-size: 18px;
 }
 
 .operatorBtn {
     background-color: rgb(230, 107, 63);
 }
 
+.operatorBtn:hover {
+    border-color: rgb(229, 225, 235);
+}
+
 .colored {
     background-color: rgb(135, 107, 180);
+}
+.colored:hover {
+    border-color: rgb(235, 172, 55);
 }
 
 .numberBtn {
     background-color: rgb(148, 140, 161);
+}
+
+.numberBtn:hover {
+    border-color: rgb(229, 225, 235);
 }
 
 #container {
@@ -72,6 +89,10 @@ button {
     grid-area: equals;
     border-radius: 5%;
     background-color: rgb(230, 107, 63);
+}
+
+#equals:hover {
+    border-color: rgb(229, 225, 235);
 }
 
 #plus {
