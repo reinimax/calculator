@@ -10,7 +10,7 @@ numberButtons.forEach(b => b.addEventListener("click", function (e) {
         inputField.value = ""; 
         operatorActive = false; // this means more numbers can be entered until "=" or an operator is clicked
     }
-    inputField.value += e.target.textContent;
+    if (inputField.value.length <= 12) inputField.value += e.target.textContent;
 }));
 
 const operatorButtons = document.querySelectorAll(".operatorBtn");
@@ -19,8 +19,8 @@ operatorButtons.forEach(b => b.addEventListener("click", function (e) {
         tempStore = inputField.value;
         operator = e.target.textContent;
     } else {
-        tempStore = operate(parseFloat(tempStore), parseFloat(inputField.value), operator);
-        inputField.value = tempStore; //update inputField
+        tempStore = (operate(parseFloat(tempStore), parseFloat(inputField.value), operator)).toString();
+        inputField.value = tempStore.substr(0,13); //update inputField
         operator = e.target.textContent; //store new operator
     }
     operatorActive = true;
@@ -29,8 +29,8 @@ operatorButtons.forEach(b => b.addEventListener("click", function (e) {
 const euqalButton = document.querySelector("#equals");
 euqalButton.addEventListener("click", function() {
     if (operator !== "") {
-        tempStore = operate(parseFloat(tempStore), parseFloat(inputField.value), operator);
-        inputField.value = tempStore; //update inputField
+        tempStore = (operate(parseFloat(tempStore), parseFloat(inputField.value), operator)).toString();
+        inputField.value = tempStore.substr(0,13);
         operator = ""; //reset operator
         
     }
@@ -66,7 +66,7 @@ decimalButton.addEventListener("click", function() {
         inputField.value = "0";
         operatorActive = false;
     }
-    if (inputField.value.indexOf(".") === -1) inputField.value += "."; //only add "." if there is not already a dot in the inputField.
+    if (inputField.value.indexOf(".") === -1 && inputField.value.length <= 11) inputField.value += "."; //only add "." if there is not already a dot in the inputField.
 });
 
 function operate(a,b,operator) {
