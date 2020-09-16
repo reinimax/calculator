@@ -84,6 +84,10 @@ invertButton.addEventListener("click", function() {
 
 const decimalButton = document.querySelector("#decimal");
 decimalButton.addEventListener("click", function() {
+    if (operatorActive) {
+        inputField.value = "0"; // reset Inputfield
+        operatorActive = false; //reset, so that more numbers can be entered
+    }
     if (inputField.value.indexOf(".") === -1) inputField.value += "."; //only add "." if there is not already a dot in the inputField.
 });
 
