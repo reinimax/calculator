@@ -1,8 +1,29 @@
+body {
+    background-color: aliceblue;
+}
+
+button {
+    border-radius: 25%;
+}
+
+.operatorBtn {
+    background-color: rgb(230, 107, 63);
+}
+
+.colored {
+    background-color: rgb(135, 107, 180);
+}
+
+.numberBtn {
+    background-color: rgb(120, 114, 131);
+}
+
 #container {
     display: grid;
     width: 300px;
+    margin: 150px auto auto;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(6, 75px);
+    grid-template-rows: repeat(6, 63.75px);
     grid-template-areas: 
     "input input input input"
     "AC C invert plus"
@@ -10,6 +31,9 @@
     "none none none multiply"
     "none none none divide"
     "decimals zero equals equals";
+    gap: 15px;
+    background-color: rgb(36, 34, 34);
+    border: 15px solid rgb(36, 34, 34);
 }
 
 #inputField {
@@ -34,6 +58,8 @@
 
 #equals {
     grid-area: equals;
+    border-radius: 5%;
+    background-color: rgb(230, 107, 63);
 }
 
 #plus {
