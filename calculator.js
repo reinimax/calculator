@@ -1,27 +1,5 @@
-/*
-How does a calculator work?
-- numbers are typed in
-- then an operator is hit
-- then other numbers are entered and so on, until
-- = is hit, then the result is computed
-
-~ When an operator is hit the first time, the number is stored in a variable and the inputfield cleared.
-~ When an operator is hit the second and following times, the result of the previous variable and the current number is resolved and stored again.
-...
-so, when I hit an operator:
-IF tempStore is empty and operatorStore is empty: (first time hitting operator)
-- Store inputField.value in tempStore.
-- Store operator in operatorStore.
-- clear InputField
-ELSE: (second or other time hitting operator)
-- tempStore = tempStore operatorStore inputField.value (probably needs to be conditional - function call depending on which value in operatorStore?)
-- Store new operator in operatorStore
-- clear InputField
-*/
-
 const inputField = document.querySelector("#inputField");
 inputField.value = "0";
-
 let tempStore = "0";
 let operator = "";
 let operatorActive = true;
@@ -29,8 +7,8 @@ let operatorActive = true;
 const numberButtons = document.querySelectorAll(".numberBtn");
 numberButtons.forEach(b => b.addEventListener("click", function (e) {
     if (operatorActive) {
-        inputField.value = ""; // reset Inputfield
-        operatorActive = false; //reset, so that more numbers can be entered
+        inputField.value = ""; 
+        operatorActive = false; // this means more numbers can be entered until "=" or an operator is clicked
     }
     inputField.value += e.target.textContent;
 }));
@@ -85,8 +63,8 @@ invertButton.addEventListener("click", function() {
 const decimalButton = document.querySelector("#decimal");
 decimalButton.addEventListener("click", function() {
     if (operatorActive) {
-        inputField.value = "0"; // reset Inputfield
-        operatorActive = false; //reset, so that more numbers can be entered
+        inputField.value = "0";
+        operatorActive = false;
     }
     if (inputField.value.indexOf(".") === -1) inputField.value += "."; //only add "." if there is not already a dot in the inputField.
 });
