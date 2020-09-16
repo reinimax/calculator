@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap');
+
 body {
     background-color: aliceblue;
 }
 
 button {
     border-radius: 25%;
+    font-family: 'Roboto', sans-serif;
 }
 
 .operatorBtn {
@@ -15,7 +18,7 @@ button {
 }
 
 .numberBtn {
-    background-color: rgb(120, 114, 131);
+    background-color: rgb(148, 140, 161);
 }
 
 #container {
