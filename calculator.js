@@ -97,22 +97,10 @@ function operate(a,b,operator) {
         case "-": return subtract(a,b);   
         case "x": return multiply(a,b);  
         case "/": return divide(a,b);
-            
     }
 }
 
-function add(a,b) {
-    return a + b; 
-} 
-
-function subtract(a,b) {
-    return a - b;
-}
-
-function multiply(a,b) {
-    return a * b;
-}
-
-function divide(a,b) {
-    return (b === 0) ? "Don't try to divide by zero..." : a / b;
-}
+const add = (a,b) => a + b;
+const subtract = (a,b) => a - b;
+const multiply = (a,b) => a * b;
+const divide = (a,b) => (b === 0) ? "Don't even try ..." : a / b;
