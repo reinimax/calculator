@@ -21,6 +21,7 @@ button:hover {
 
 .operatorBtn:hover {
     border-color: rgb(229, 225, 235);
+    background-color: rgb(236, 137, 101);
 }
 
 .colored {
@@ -28,6 +29,7 @@ button:hover {
 }
 .colored:hover {
     border-color: rgb(235, 172, 55);
+    background-color: rgb(86, 75, 105);
 }
 
 .numberBtn {
@@ -36,6 +38,7 @@ button:hover {
 
 .numberBtn:hover {
     border-color: rgb(229, 225, 235);
+    background-color: rgb(134, 126, 148);
 }
 
 #container {
@@ -93,6 +96,7 @@ button:hover {
 
 #equals:hover {
     border-color: rgb(229, 225, 235);
+    background-color: rgb(236, 137, 101);
 }
 
 #plus {
