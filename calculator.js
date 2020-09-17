@@ -64,7 +64,7 @@ invertButton.addEventListener("click", function() {
     } else {
         inputField.value = `-${inputField.value}`;
     }
-    tempStore = inputField.value;
+    //tempStore = inputField.value; //causes problems!
 });
 
 const decimalButton = document.querySelector("#decimal");
