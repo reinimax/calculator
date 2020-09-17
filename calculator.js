@@ -24,6 +24,7 @@ operatorButtons.forEach(b => b.addEventListener("click", function (e) {
     } else { 
         tempStore = (operate(parseFloat(tempStore), parseFloat(inputField.value), operator)).toString();
         inputField.value = tempStore.substr(0,13); //update inputField
+        inputField.value = correctFloatError(inputField.value);
         operator = e.target.textContent; //store new operator
     }
     operatorActive = true;
@@ -38,6 +39,7 @@ euqalButton.addEventListener("click", function(e) {
     if (operator !== "") {
         tempStore = (operate(parseFloat(tempStore), parseFloat(inputField.value), operator)).toString();
         inputField.value = tempStore.substr(0,13);
+        inputField.value = correctFloatError(inputField.value);
         operator = ""; //reset operator
         
     }
@@ -88,6 +90,13 @@ function checkDisabled() {
         if (operatorButtons[i].disabled === true) return true;
     }
     return false;
+}
+
+function correctFloatError(numAsString) {   //remove 0's until a number or decimal point is reached
+    for (let i = numAsString.length-1; i > 0; i--) {
+        if (numAsString.charAt(i) !== "0") return numAsString;
+        numAsString = numAsString.substr(0,i);
+    }
 }
 
 function operate(a,b,operator) {
