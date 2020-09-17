@@ -1,18 +1,7 @@
 My calculator-project for Odin.
-Basic functionality implemented.
-Next steps:
-- if decimal or an operator button is pressed, it should stay higlighted/active
-- try to add keyboard support
--- buttons should also highlight/activate/deactivate when the according key is pressed!
-- btw. try to make textfield read only!
 
-Known, unresolved bugs:
-- When a number in the input-field gets inverted, the new, inverted value is not stored, and calculations performed with the old value. But always storing the new, inverted number also causes problems, namely when a number is inverted that is the SECOND part of a calculation. Maybe a solution would be to introduce two storage-variables and stop using input-field-values directly in calculations.
-
-The true problem is with the C and invert-buttons. The problem occurs when an operator is clicked and AFTER THAT the number on the display is altered via these buttons.
-- One solution is to disable the buttons after an operator is clicked.
-
-Sometimes it is not really clear what is a bug and what not. For example, there are different ways to let the "C"-Button work - but which one is correct?
-- Like it is now: only the textfield is updated. So, if I type "12 +" and then decide "Oh no, I mistyped, just wanted to do "1 +", then the 12 is still stored, the new textfield-input is 1 and if I click "+" again, "13" is computed. But this also makes sense: stored value + value in textfield. One could even see this as a feature. For example, instead of typing "123456 + 12345" out, one could simply type it in once, click "+", delete the the "6" at the end, and compute the result.
-- Another solution would be to update the stored variable on every click of the "C"-button and to reset the operator-variable. This would allow  to correct mistyping more easily. In the above example, "1" would be stored and the operator deleted, so I could merrily go an and click "+" again, enter another number and compute the desired result.
-- Another solution would be to disable the "C"-button once an operator is clicked. I think, indicating what is clicked, active, disabled ... with CSS would make stuff far more intuitive.
+I had quite a hard time figuring out the logic here. After some thinking the logic of the basic functionality got quite clear, but adding new functionality and fixing bugs tended to mess around with the code, making functions bigger and complicating the logic of the whole thing.
+I also encountered some situations in which I was not sure how something should work. The "C"- and "+/-"-buttons especially gave me headaches. Should I allow the user to alter the number he has already entered after he clicked an operator-button? I tried that solution out but found it to be unintuitive (at least without a dedicated output-field that shows the whole calculation so far). Finally I settled with probably the easiest way out: disabling these buttons after an operator was clicked.
+Some more thinking and planning before starting to code could have saved me much time. The logic/problem-solving in this project was far more challenging for me than the actual implementation.
+On the high side, the CSS felt a lot easier than during the first few projects and I am quite pleased with the looks of the calculator.
+By now, it should work just fine without major bugs. I leave it for now as it is.
