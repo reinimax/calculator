@@ -11,6 +11,7 @@ numberButtons.forEach(b => b.addEventListener("click", function (e) {
         operatorActive = false; // this means more numbers can be entered until "=" or an operator is clicked
     }
     if (inputField.value.length <= 12) inputField.value += e.target.textContent;
+    enableButtons();
 }));
 
 const operatorButtons = document.querySelectorAll(".operatorBtn");
@@ -24,10 +25,12 @@ operatorButtons.forEach(b => b.addEventListener("click", function (e) {
         operator = e.target.textContent; //store new operator
     }
     operatorActive = true;
+    enableButtons();
+    e.target.disabled = true; //disable button
 }));
 
 const euqalButton = document.querySelector("#equals");
-euqalButton.addEventListener("click", function() {
+euqalButton.addEventListener("click", function(e) {
     if (operator !== "") {
         tempStore = (operate(parseFloat(tempStore), parseFloat(inputField.value), operator)).toString();
         inputField.value = tempStore.substr(0,13);
@@ -35,6 +38,7 @@ euqalButton.addEventListener("click", function() {
         
     }
     operatorActive = true;
+    enableButtons();
 });
 
 const acButton = document.querySelector("#AC");
@@ -43,6 +47,7 @@ acButton.addEventListener("click", function() {
     tempStore = "0";
     operator = "";
     operatorActive = true;
+    enableButtons();
 });
 
 const cButton = document.querySelector("#C");
@@ -68,6 +73,10 @@ decimalButton.addEventListener("click", function() {
     }
     if (inputField.value.indexOf(".") === -1 && inputField.value.length <= 11) inputField.value += "."; //only add "." if there is not already a dot in the inputField.
 });
+
+function enableButtons() {
+    operatorButtons.forEach(b => b.disabled = false);
+}
 
 function operate(a,b,operator) {
     switch (operator) {

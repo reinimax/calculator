@@ -24,6 +24,15 @@ button:hover {
     background-color: rgb(236, 137, 101);
 }
 
+button:disabled:hover {
+    font-size: 16px;
+}
+
+.operatorBtn:disabled:hover {
+    background-color: rgb(230, 107, 63);
+    border-color: rgb(186, 178, 197);
+}
+
 .colored {
     background-color: rgb(135, 107, 180);
 }
