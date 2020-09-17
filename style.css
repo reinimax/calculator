@@ -41,6 +41,13 @@ button:disabled:hover {
     background-color: rgb(86, 75, 105);
 }
 
+.colored:disabled:hover {
+    border-color: rgb(186, 178, 197);
+}
+.colored:disabled {
+    background-color: rgb(86, 75, 105);
+}
+
 .numberBtn {
     background-color: rgb(148, 140, 161);
 }

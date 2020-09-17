@@ -29,6 +29,8 @@ operatorButtons.forEach(b => b.addEventListener("click", function (e) {
     operatorActive = true;
     enableButtons();
     e.target.disabled = true; //disable button
+    cButton.disabled = true;
+    invertButton.disabled = true;
 }));
 
 const euqalButton = document.querySelector("#equals");
@@ -64,7 +66,6 @@ invertButton.addEventListener("click", function() {
     } else {
         inputField.value = `-${inputField.value}`;
     }
-    //tempStore = inputField.value; //causes problems!
 });
 
 const decimalButton = document.querySelector("#decimal");
@@ -78,6 +79,8 @@ decimalButton.addEventListener("click", function() {
 
 function enableButtons() {
     operatorButtons.forEach(b => b.disabled = false);
+    cButton.disabled = false;
+    invertButton.disabled = false;
 }
 
 function checkDisabled() {
