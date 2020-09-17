@@ -19,7 +19,9 @@ operatorButtons.forEach(b => b.addEventListener("click", function (e) {
     if (operator === "") {
         tempStore = inputField.value;
         operator = e.target.textContent;
-    } else {
+    } else if (checkDisabled()) { //if an operator-Button has been previously clicked, don't calculate, but update the operator
+        operator = e.target.textContent;
+    } else { 
         tempStore = (operate(parseFloat(tempStore), parseFloat(inputField.value), operator)).toString();
         inputField.value = tempStore.substr(0,13); //update inputField
         operator = e.target.textContent; //store new operator
@@ -76,6 +78,13 @@ decimalButton.addEventListener("click", function() {
 
 function enableButtons() {
     operatorButtons.forEach(b => b.disabled = false);
+}
+
+function checkDisabled() {
+    for (let i = 0; i < operatorButtons.length; i++) {
+        if (operatorButtons[i].disabled === true) return true;
+    }
+    return false;
 }
 
 function operate(a,b,operator) {
