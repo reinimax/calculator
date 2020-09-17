@@ -74,7 +74,7 @@ decimalButton.addEventListener("click", function() {
         inputField.value = "0";
         operatorActive = false;
     }
-    if (inputField.value.indexOf(".") === -1 && inputField.value.length <= 11) inputField.value += "."; //only add "." if there is not already a dot in the inputField.
+    if (inputField.value.indexOf(".") === -1 && inputField.value.length <= 11) inputField.value += "."; //only add "." if there is not already a dot in the inputField and enough space for at least 1 additional number.
 });
 
 function enableButtons() {
