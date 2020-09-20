@@ -39,6 +39,7 @@ euqalButton.addEventListener("click", function(e) {
     if (operator !== "") {
         tempStore = (operate(parseFloat(tempStore), parseFloat(inputField.value), operator)).toString();
         inputField.value = tempStore.substr(0,13);
+        console.log(correctFloatError(inputField.value));
         inputField.value = correctFloatError(inputField.value);
         operator = ""; //reset operator
         
@@ -92,11 +93,14 @@ function checkDisabled() {
     return false;
 }
 
-function correctFloatError(numAsString) {   //remove 0's until a number or decimal point is reached
+function correctFloatError(numAsString) {   //remove 0's until a number or decimal point is reached   
+    if (!numAsString.includes(".")) return numAsString;
     for (let i = numAsString.length-1; i > 0; i--) {
         if (numAsString.charAt(i) !== "0") return numAsString;
         numAsString = numAsString.substr(0,i);
+        console.log(numAsString);
     }
+    return numAsString;
 }
 
 function operate(a,b,operator) {
